@@ -5,7 +5,7 @@ const cityModel = require('../models/cityModel'),
     logger = require('../../logger');
 
 
-//Add New city 
+//Method for adding a new city
 exports.addNewCity = function (req, res) {
     const newCityName = req.body.cityName;
     console.log(JSON.stringify(req.body), "city")
@@ -45,6 +45,7 @@ exports.addNewCity = function (req, res) {
         })
 }
 
+//Method for adding new theater(future use)
 exports.addNewTheater = function (req, res) {
     const cityName = req.params.cityName,
         theaterName = { "theaterName": req.body.theaterName };

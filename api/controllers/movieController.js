@@ -5,6 +5,8 @@ const movieModel = require('../models/movieModel'),
     userModel = require('../models/usersModel'),
     logger = require('../../logger');
 
+
+//Method for adding a new movie in theater/s.
 exports.addNewMovie = function (req, res) {
     const cityName = req.params.cityName,
         theaters = req.body.theaters,
@@ -65,6 +67,7 @@ exports.addNewMovie = function (req, res) {
 
 }
 
+//Method for getting the movie list in a particular city
 exports.moviesList = function (req, res) {
     const cityName = req.params.cityName
     cityModel.findOne({
@@ -101,7 +104,7 @@ exports.moviesList = function (req, res) {
         })
 }
 
-
+//Method for getting the show timings.
 exports.viewShowTimings = function (req, res) {
     const cityName = req.params.cityName,
         movieName = req.params.movieName;
@@ -138,6 +141,7 @@ exports.viewShowTimings = function (req, res) {
         })
 }
 
+//Method for getting the seats for a particular show timing.
 exports.viewAvailableSeats = function (req, res) {
     const cityName = req.params.cityName,
         movieName = req.params.movieName,
@@ -192,6 +196,7 @@ exports.viewAvailableSeats = function (req, res) {
         })
 }
 
+//Method for booking tickets and updating the balance.
 exports.bookTickets = async function (req, res) {
     var cityName = req.params.cityName,
         movieName = req.params.movieName,
@@ -199,7 +204,8 @@ exports.bookTickets = async function (req, res) {
         noOfTickets = req.body.noOfTickets,
         time = req.body.time,
         theaterName = req.body.theaterName;
-    var seats = await viewSeats(cityName, movieName, theaterName, time)
+    
+    var seats = await viewSeats(cityName, movieName, theaterName, time)//Function call for getting the available seats.
     var seatsAvailable = seats.seatsAvailable;
     if (seatsAvailable >= noOfTickets) {
         var balanceTickets = seatsAvailable - noOfTickets;
@@ -232,7 +238,7 @@ exports.bookTickets = async function (req, res) {
 
 }
 
-
+//Function for getting the available seats.
 function viewSeats(cityName, movieName, theaterName, time) {
     return new Promise((resolve, reject) => {
 

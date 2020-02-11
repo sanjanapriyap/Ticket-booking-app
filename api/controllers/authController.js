@@ -1,10 +1,10 @@
 'use strict';
 
 const userModel = require('../models/usersModel'),
-    bcrypt = require('bcryptjs'),
-    jwt = require('jsonwebtoken'),
     config = require('../../config.json'),
-    logger = require('../../logger');
+    logger = require('../../logger'),
+    bcrypt = require('bcryptjs'),
+    jwt = require('jsonwebtoken');
 
 exports.loginAuth = function (req, res) {
     var emailId = req.body.emailId,

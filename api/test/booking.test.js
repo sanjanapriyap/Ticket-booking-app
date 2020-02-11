@@ -18,27 +18,14 @@ test('Should create a New User', async () => {
     const response = await request(server)
         .post('/api/v1/registerNewUser')
         .send({
-            // _id: new mongoose.Types.ObjectId(),
             name: "Sanju P",
             emailId: "Sanju@gmail.com",
             password: bcrypt.hashSync("welcome@123", 10)
         })
         .expect(200)
 })
-//test for Book tickets
-// test('Should Book tickets', async () => {
-//     const response = await request(server)
-//         .post('/api/v1/bookTickets/Hyderabad/Jaanu')
-//         .set('Authorization', `Bearer ${userOne.token}`)
-//         .send({
-//             theaterName: "Shanti",
-//             noOfTickets: 2,
-//             time: "2:00P.M"
-//         })
-//         .expect(200)
-// })
 
-//test for login Process
+//test for login 
 test('Should login existing user', async () => {
     const response = await request(server)
         .post('/api/v1/auth')
@@ -50,24 +37,24 @@ test('Should login existing user', async () => {
 
 })
 
-//test for listing all movies
-test('Should list all movies', async () => {
+//test for Getting the list of all movies in City
+test('Get list of all movies in City', async () => {
     const response = await request(server)
         .get('/api/v1/moviesList/Hyderabad')
         .send()
         .expect(200)
 
 })
-//test for viewShowTimings/:cityName/:movieName
-test('Should list show times', async () => {
+//test for Getting the show timings of movie in a theater
+test('Get the show timings of movie in a theater', async () => {
     const response = await request(server)
         .get('/api/v1/viewShowTimings/Hyderabad/Jaanu')
         .send()
         .expect(200)
 })
 
-//test for viewAvailableSeats
-test('Should viewAvailableSeats', async () => {
+//test for et the available seats in the theater for a particular show
+test('Get the available seats', async () => {
     const response = await request(server)
         .post('/api/v1/viewAvailableSeats/Hyderabad/Jaanu')
         .send({
@@ -78,14 +65,3 @@ test('Should viewAvailableSeats', async () => {
 })
 
 
-
-// // test for authentication failed
-// test('Should not login nonexistent user', async () => {
-//     await request(server)
-//         .post('/api/v1/login')
-//         .send({
-//             email: userOne.email,
-//             password: 'IncorrectPassword'
-//         })
-//         .expect(400)
-// })

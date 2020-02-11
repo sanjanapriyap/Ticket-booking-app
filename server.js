@@ -10,7 +10,7 @@ const express = require('express'),
     mongoose = require('mongoose'),
     logger = require('./logger');
 
-
+//Connection providers for server and the database
 const port = process.env.PORT || config.port ,
 dbconnection = process.env.DB || config.db;
 
@@ -52,7 +52,7 @@ app.all('/*', function (req, res, next) {
         next();
     }
 });
-//app.all('*', auth);
+
 let routes = require('./api/routes/routes');
 routes(app);
 
