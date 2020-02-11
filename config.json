@@ -1,0 +1,8 @@
+{
+	"host" : "localhost",
+	"port" : "4100",
+	"db" : "mongodb://localhost:27017/TicketsApp",
+	"dbtest": "mongodb://localhost:27017/TicketsAppTest",
+	"secret": "eraytt",
+	"jwt_expiretime" : "36000000"
+}
