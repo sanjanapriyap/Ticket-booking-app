@@ -2,17 +2,17 @@
 Api's for viewing the movies playing in a city and booking tickets for the movie.
 
 ## Technology Stack 
-* 1.MEAN stack
-* 2.Postman
+* MEAN stack
+* Postman
 
 
 ## To Run the Application
 
 ### Prerequisites
 
-* 1.Node
-* 2.MongoDB (installed and running)
-* 3.Postman
+* Node
+* MongoDB (installed and running)
+* Postman
 
 ## Steps
 
