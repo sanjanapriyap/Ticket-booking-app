@@ -16,7 +16,7 @@ Api's for viewing the movies playing in a city and booking tickets for the movie
 
 ## Steps
 
-Download folder “Ticket-booking-app” folder from the Github (https://github.com/sanjanapriyap/Ticket-booking-app.git).
+Clone the folder “Ticket-booking-app” from the Github link (https://github.com/sanjanapriyap/Ticket-booking-app.git).
 
 Go inside the “Ticket-booking-app” folder by running the command mentioned below.
 
