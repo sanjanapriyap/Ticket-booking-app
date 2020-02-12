@@ -609,3 +609,8 @@
 {"message":"[Server]:Connection with MongoDB installed","level":"info"}
 {"message":"[Server]:server started on: 4100","level":"info"}
 {"message":"[Server]:Connection with MongoDB installed","level":"info"}
+{"message":"[Server]:server started on: 4100","level":"info"}
+{"message":"[Server]:Connection with MongoDB installed","level":"info"}
+{"message":"[Server]:server started on: 4100","level":"info"}
+{"message":"[Server]:Connection with MongoDB installed","level":"info"}
+{"message":"Already Exists.","level":"error"}

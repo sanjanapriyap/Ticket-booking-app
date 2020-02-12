@@ -1,0 +1,341 @@
+{
+	"info": {
+		"_postman_id": "1aeafaf4-f028-449d-9ce3-2d645b5db5b8",
+		"name": "Booking app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add new Movie",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"movieName\":\"Vikram\",\n\t\"theaters\":[{\n\t\t\"theaterName\":\"Shanti\",\n\t\t\"showTimings\":[{\n\t\t\t\"time\":\"2:00P.M\",\n\t\t\t\"seatCount\": 40\n\t\t},\n\t\t{\n\t\t\t\"time\":\"6:00P.M\",\n\t\t\t\"seatCount\": 40\n\t\t},\n\t\t{\n\t\t\t\"time\":\"9:00P.M\",\n\t\t\t\"seatCount\": 40\n\t\t}]\n\t},\n\t{\n\t\t\"theaterName\":\"Sandhya\",\n\t\t\"showTimings\":[{\n\t\t\t\"time\":\"2:00P.M\",\n\t\t\t\"seatCount\": 40\n\t\t},\n\t\t{\n\t\t\t\"time\":\"6:00P.M\",\n\t\t\t\"seatCount\": 40\n\t\t},\n\t\t{\n\t\t\t\"time\":\"9:00P.M\",\n\t\t\t\"seatCount\": 40\n\t\t}]\n\t}]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4100/api/v1/addNewMovie/Hyderabad",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4100",
+					"path": [
+						"api",
+						"v1",
+						"addNewMovie",
+						"Hyderabad"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Movies List",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4100/api/v1/moviesList/Hyderabad",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4100",
+					"path": [
+						"api",
+						"v1",
+						"moviesList",
+						"Hyderabad"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "view show timings",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4100/api/v1/viewShowTimings/Hyderabad/Jaanu",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4100",
+					"path": [
+						"api",
+						"v1",
+						"viewShowTimings",
+						"Hyderabad",
+						"Jaanu"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Book tickets",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{authToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n     \"emailId\": \"sanju.priya@gmail.com\",\n     \"theaterName\": \"Shanti\",\n     \"noOfTickets\":2,\n     \"time\":\"2:00P.M\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4100/api/v1/bookTickets/Hyderabad/Jaanu",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4100",
+					"path": [
+						"api",
+						"v1",
+						"bookTickets",
+						"Hyderabad",
+						"Jaanu"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login ",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "5330f2ee-250f-4d93-acc8-5b395266f43f",
+						"exec": [
+							"",
+							"// if(pm.response.code == 200){",
+							"//     var jsonData = JSON.parse(responseBody);",
+							"//     postman.setEnvironmentVariable(\"authToken\", jsonData.result.token);",
+							"// }"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "3bdf77b3-a7c3-4f0d-8491-49742619a70d",
+						"exec": [
+							"",
+							"if(pm.response.code == 200){",
+							"    var jsonData = JSON.parse(responseBody);",
+							"    postman.setEnvironmentVariable(\"authToken\", jsonData.result.token);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"emailId\":\"sanju.priya@gmail.com\",\n\t\"password\":\"sanju123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4100/api/v1/auth",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4100",
+					"path": [
+						"api",
+						"v1",
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "available seats",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"theaterName\": \"Shanti\",\n    \"time\": \"2:00P.M\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4100/api/v1/viewAvailableSeats/Hyderabad/Jaanu",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4100",
+					"path": [
+						"api",
+						"v1",
+						"viewAvailableSeats",
+						"Hyderabad",
+						"Jaanu"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add new city",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"cityName\" : \"Vizag\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4100/api/v1/addCity",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4100",
+					"path": [
+						"api",
+						"v1",
+						"addCity"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "registerNewUser",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n \t\"name\": \"Sanju P\",\n    \"emailId\": \"Sanjupriya1@gmail.com\",\n    \"password\": \"welcome@123\"\n }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4100/api/v1/registerNewUser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4100",
+					"path": [
+						"api",
+						"v1",
+						"registerNewUser"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
