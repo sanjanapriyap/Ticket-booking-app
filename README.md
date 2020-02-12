@@ -2,17 +2,17 @@
 Api's for viewing the movies playing in a city and booking tickets for the movie.
 
 ## Technology Stack 
-1.MEAN stack
-2.Postman
+* 1.MEAN stack
+* 2.Postman
 
 
 ## To Run the Application
 
 ### Prerequisites
 
-1.Node
-2.MongoDB (installed and running)
-3.Postman
+* 1.Node
+* 2.MongoDB (installed and running)
+* 3.Postman
 
 ## Steps
 
@@ -32,7 +32,6 @@ node server // to run the application
 npm test // to test the application
 
 ### Importing the APIs in postman
+Import the APIs from Booking app.postman_collection.json using the import feature of Postman.
 
-
-Then Use APIs to use application.
 
